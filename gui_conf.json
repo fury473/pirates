@@ -1,9 +1,15 @@
 {
-    "screen": {
-        "width": 1290,
-        "height": 720
+    "pygame": {
+        "screen": {
+            "width": 1290,
+            "height": 720
+        },
+        "font": {
+            "file": null,
+            "size": 14
+        }
     },
-    "skin": {
+    "graphic_components": {
         "cell": {
             "earth": [
                 251,
