@@ -35,15 +35,13 @@ class Gui(object):
             grid.rect = grid.rect.move(x_margin, 0)
             grid_surface = display.get_surface().subsurface(grid.rect)
             for index, cell in world_map.cells.items():
-                # cell.status = CellStatus.track_start
-                cell.graphic_component.draw(grid_surface)
                 if cell.row == 1 and cell.col == 1:
                     cell.status = CellStatus.track_start
-                    cell.graphic_component.draw(grid_surface)
-                    cells = world_map.find_cells_in_range(cell, 2)
+                    cells = world_map.find_cells_in_range(cell, 3)
                     for reachable_cell in cells:
                         reachable_cell.status = CellStatus.reachable
-                        reachable_cell.graphic_component.draw(grid_surface)
+            for index, cell in world_map.cells.items():
+                cell.draw(grid_surface)
 
     def display_toggle_full_screen_instruction(self):
         display_font = font.Font(config.font['file'], config.font['size'])

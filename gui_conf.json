@@ -1,8 +1,8 @@
 {
     "pygame": {
         "screen": {
-            "width": 1290,
-            "height": 720
+            "width": 650,
+            "height": 360
         },
         "font": {
             "file": null,

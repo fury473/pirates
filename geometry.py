@@ -4,6 +4,8 @@ from configuration import config
 from math import cos, sin, radians, sqrt
 from pygame import Rect
 from pygame import draw
+import pygame
+from pprint import pprint
 from cell import Status as CellStatus
 
 class Hexagon(GraphicComponent):
@@ -19,9 +21,16 @@ class Hexagon(GraphicComponent):
         color = config.types_border[self.model.type]
         if (self.model.status == CellStatus.reachable):
             color = (0, 0, 255)
-        if (self.model.status == CellStatus.track_start):
+        elif (self.model.status == CellStatus.track_start):
             color = (255, 0, 0)
+        elif (self.model.status == CellStatus.track_end):
+            color = (0, 255, 0)
         draw.polygon(surface, color, self.corners)
+        font = pygame.font.Font(config.font['file'], 50)
+        text = font.render(self.model.get_index(), 1, (0, 0, 0))
+        textpos = text.get_rect()
+        textpos.centerx, textpos.centery = self.center
+        surface.blit(text, textpos)
 
     def get_corners(self):
         center_x, center_y = self.center
